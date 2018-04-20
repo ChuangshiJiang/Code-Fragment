@@ -1,2 +1,9 @@
-//问题:地址栏的中文字符使用 getQueryStringName()方法获取会乱码
+//问题1:地址栏的中文字符使用 getQueryStringName()方法获取会乱码
 //解决方法
+var string = GetQueryStringByName("...");//... 表示地址栏中文字符，base64格式
+var newstr = decodeURI(strnig);//解码成中文字符
+var newnewStr = encodeRUI(newstr);//中文字符==>base64
+
+
+
+//问题2：
