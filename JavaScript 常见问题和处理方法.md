@@ -97,7 +97,7 @@ $("#...").DataTable({...}).on("draw",function(){
 $("#...").on("show.bs.modal",function(event){
     let btnThis = $(event.relatedTarget);   //触发事件的元素
     let modal = $(this);  //模态框自身
-    let data1 = btnThis.data("xxx); //从按钮的 data-xxx 获取的值，data-xxx 中 ，xxx 必须小写
+    let data1 = btnThis.data("xxx"); //从按钮的 data-xxx 获取的值，data-xxx 中 ，xxx 必须小写
     let data2 = btnThis.data("xxx");
     //...
     modal.find("...").val("...");   //将触发元素的值填充到模态框对应元素    
