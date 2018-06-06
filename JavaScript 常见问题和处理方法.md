@@ -82,7 +82,7 @@ var showOrNot = function(){
 //每个上传按钮对应要有一个页面，页面名称与接口相同，页面与 Upload.cshtml 类似
 ```
 
-### 7. 项目上传 Excel 表格
+### 7. 项目下载 Excel 表格
 `<button type="button" onClick="location.href='要下载文件的地址'">点击下载</button>`
 
 ### 8. DataTables 表格重绘事件
