@@ -5,6 +5,18 @@
 ---
 ### 1. 地址栏中文字符，使用 `getQueryStringByName()`方法获取会乱码。
 ```javascript
+/*
+* 获取地址栏指定参数值
+* name:String 类型，需要获取的参数键
+*/
+function getQueryStringByName(name) {
+    var result = location.href.match(new RegExp("[\?\&]" + name + "=([^\&]+)", "i"));
+    if (result == null || result.length < 1) {
+        return "";
+    }
+    return result[1];
+}
+
 var string = getQueryStringByName("参数");
 var newStr = decodeURI(string); //解码
     //编码encodeURI("需要编码的字符串");
