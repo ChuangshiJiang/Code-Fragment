@@ -181,4 +181,68 @@ function ClickEnter(event,inputs){
 }
 ```
 
+### 11. 序列化表单
+```javascript
+/*
+* 序列表单
+* $.fn.functionName :扩展 jQuery 函数库，添加一个名为 functionName 的函数
+*/
+$.fn.serializeObject = function () {
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function () {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};
+```
+
+### 12.反序列化表单
+```javascript
+/*
+* 反序列表单
+* $.fn.functionName :扩展 jQuery 函数库，添加一个名为 functionName 的函数
+*/
+$.fn.DeserializeObject = function (model) {
+    var rootDom = this;
+    for (var p in model) {
+        var targetDom = rootDom.find("[name=" + p + "]");
+        if (targetDom.is("input[type='radio']")) {
+            targetDom.each(function () {
+                if ($(this).is("[value=" + model[p] + "]")) {
+                    $(this).prop('checked', true);
+                    return false;
+                }
+            });
+        } else if (targetDom.is("input[type='checkbox']")) {
+            targetDom.each(function () {
+                if ($(this).is("[value=" + model[p] + "]")) {
+                    $(this).attr('checked', true);
+                    return false;
+                }
+            });
+        } else if (targetDom.is("select")) {
+            targetDom.each(function () {
+                $(this).find("option[value=" + model[p] + "]").prop("selected", true);
+                return false;
+
+            })
+
+        } else if (targetDom.hasClass("datepicker")) {
+            targetDom.val(jsonDateFormat(model[p]));
+        } else {
+            targetDom.val(model[p]);
+        }
+
+    }
+}
+```
+
 
