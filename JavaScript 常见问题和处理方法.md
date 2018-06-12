@@ -246,7 +246,7 @@ $.fn.DeserializeObject = function (model) {
 ```
 
 
-### 13. 浏览窗口打印部分内容，保持员页面不变
+### 13. 浏览窗口打印部分内容，保持原页面不变
 *html 代码*
 ```html
 <iframe id="printf" src="" width="0" height="0" frameborder="0"></iframe>
