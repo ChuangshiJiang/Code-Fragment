@@ -270,11 +270,8 @@ function doBarCodePrint() {
     '</style></head><body>';//css 样式表
 
     var foothtml = "</body></html>";
-
-    // 获取原来的窗口界面body的html内容，并保存起来
-    var oldhtml = window.document.body.innerHTML;
     
-    // 获取div中的html内容
+    // 获取 div 中的 html
     var newhtml = $("#barcode").html();
     var printhtml = headhtml + newhtml + foothtml;//拼接需要打印的内容，带上样式表
 
@@ -296,4 +293,4 @@ $(document).on("click", "#printBarCode", function () {
 *实例动图*
 ![打印条形码动图](/img/barCodePrint.gif)
 
-**可见取消打印后，原页面没有发生变化**
+**可见取消打印后，原页面没有发生变化 参考 [ Window.print()打印整个网站中的部分内容，打印后，原网页保持不变](https://segmentfault.com/a/1190000006236133)**
