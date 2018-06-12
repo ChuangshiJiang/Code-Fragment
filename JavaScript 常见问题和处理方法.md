@@ -246,3 +246,54 @@ $.fn.DeserializeObject = function (model) {
 ```
 
 
+### 13. 浏览窗口打印部分内容，保持员页面不变
+*html 代码*
+```html
+<iframe id="printf" src="" width="0" height="0" frameborder="0"></iframe>
+```
+*JavaScript 代码*
+```javascript
+/*真实打印的条码单据*/
+function doBarCodePrint() {
+    var headhtml = 
+    '<html><head><title></title><style> '+
+    'body{width:100mm;} '+
+    '.page {height:71mm;overflow:hidden;} .page div {width:46%;float:left;line-height:8mm;padding-left: 3mm;} '+
+    '.page div:nth-child(1) {border: 1px solid #ccc;width: 95.2%;}  '+
+    '.packageNum{width: 25% !important;text-align: center;padding-left: 0 !important;font-weight: bold;height: 31.2mm;}  '+
+    '.packgeNumNum{width: 100% !important;line-height:25mm !important;display: block;font-size: 45px;text-align: center;border:0 !important;padding-left: 0 !important;border-top: 1px solid #ccc !important;}  '+
+    '.page div:nth-of-type(2n) { border-left:1px solid #ccc; border-bottom:1px solid #ccc;border-right:1px solid #ccc;}  '+
+    '.page div:nth-of-type(2n+1) { border-bottom:1px solid #ccc;border-right:1px solid #ccc;} .barCodeImg{width:70%!important;text-align:center;height: 118.91px;}  '+
+    '.barCodeImg img{width:74.5% !important; margin-top:2px;}   '+
+    '.page .coreLineheight{line-height:6mm;}  '+
+    '.jianju{ width:24.6% !important; border-left:0 !important; white-space:nowrap; padding-left:0px !important; } '+
+    '</style></head><body>';//css 样式表
+
+    var foothtml = "</body></html>";
+
+    // 获取原来的窗口界面body的html内容，并保存起来
+    var oldhtml = window.document.body.innerHTML;
+    
+    // 获取div中的html内容
+    var newhtml = $("#barcode").html();
+    var printhtml = headhtml + newhtml + foothtml;//拼接需要打印的内容，带上样式表
+
+    // 生成并打印ifrme  
+    var f = document.getElementById('printf');
+    f.contentDocument.write(printhtml);
+    f.contentDocument.close();
+    f.contentWindow.print();
+    return false;
+}
+
+//点击打印按钮，打印条形码
+$(document).on("click", "#printBarCode", function () {
+    $("#seeBarCodeModal").modal("hide");
+    doBarCodePrint();
+})
+```
+
+*实例动图*
+![打印条形码动图](/img/barCodePrint.gif)
+
+**可见取消打印后，原页面没有发生变化**
