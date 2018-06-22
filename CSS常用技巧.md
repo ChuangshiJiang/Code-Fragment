@@ -77,3 +77,27 @@ div.page{
 
 *效果图*
 ![水印效果图](/img/水印动图.gif)
+
+
+### 3.对角线渐变神色
+```html
+<body>
+    <h3>线性渐变 - 从上到下</h3>
+    <p>从顶部开始的线性渐变。起点是红色，慢慢过渡到蓝色：</p>
+    <div id="grad1"></div>
+    <p><strong>注意：</strong> Internet Explorer 9 及之前的版本不支持渐变。</p>
+</body>
+```
+```css
+#grad1 {
+    height: 200px;
+    background: -webkit-linear-gradient(45deg, #e37682 15%, #5f4d93 85%); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(45deg, #e37682 15%, #5f4d93 85%); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(45deg, #e37682 15%, #5f4d93 85%); /* Firefox 3.6 - 15 */
+    background: linear-gradient(45deg, #e37682 15%, #5f4d93 85%); /* 标准的语法（必须放在最后） */
+}
+```
+*效果图*
+![渐变色效果图](./img/渐变色效果图.png)
+
+**详情查看:[菜鸟教程渐变色](http://www.runoob.com/css3/css3-gradients.html)**
