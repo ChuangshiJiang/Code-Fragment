@@ -294,3 +294,50 @@ $(document).on("click", "#printBarCode", function () {
 ![打印条形码动图](/img/barCodePrint.gif)
 
 **可见取消打印后，原页面没有发生变化 参考 [ Window.print()打印整个网站中的部分内容，打印后，原网页保持不变](https://segmentfault.com/a/1190000006236133)**
+
+### 14. JSON 日期格式化
+```javascript
+/*
+* json日期格式转换为正常格式:不带时分秒
+*/
+
+function jsonDateFormat(jsonDate) {
+    try {
+        if (jsonDate == "") {
+            return "";
+        }
+        var date = new Date(parseInt(jsonDate.replace("/Date(", "").replace(")/", ""), 10));
+        var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
+        var day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+        return date.getFullYear() + "-" + month + "-" + day;
+    } catch (ex) {
+        return "";
+    }
+}
+
+/*
+* json日期格式转换为正常格式:带时分秒
+*/
+function jsonDateTimeFormat(jsonDate) {
+    try {
+        if (jsonDate == "") {
+            return "";
+        }
+        var date = new Date(parseInt(jsonDate.replace("/Date(", "").replace(")/", ""), 10));
+        var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
+        var day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+        var hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+        var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+        var seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+        var milliseconds = date.getMilliseconds();
+        return date.getFullYear() + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds;
+    } catch (ex) {
+        return "";
+    }
+}
+```
+*如图*
+
+![JSON日期格式化](/img/JSON日期格式化.png)
+
+### 15.
