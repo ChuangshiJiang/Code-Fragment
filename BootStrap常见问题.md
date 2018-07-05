@@ -73,5 +73,49 @@ $(document).on("show.bs.popover", ".popoverTrigger", function (event) {
 ```
 
 
-### 3.
+### 3. 单据头部托条信息整齐展示
+```html
+<div class="box-header">
+    <form>
+        <input class="hidden" name="WorkOrder_Id" />
+        <div class="col-sm-6 form-group">
+            <label class="col-sm-3 control-label">库区类型</label>
+            <div class="col-sm-9">
+                <select class="form-control AutoFillSelect" data-OptionType="ZoneType" name="ZoneType"></select>
+            </div>
+        </div>
+        <div class="col-sm-6 form-group">
+            <label class="col-sm-3 control-label">单据号</label>
+            <div class="col-sm-9">
+                <div class="input-group">
+                    <input type="text" class="form-control billCode" name="BillCode" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary btn-flat refreshTime" type="button"><i class="fa fa-refresh"></i></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 form-group">
+            <label class="col-sm-3 control-label">单据类型</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control BillType" readonly="readonly" name="Bill_Type"/>
+            </div>
+        </div>
+        <div class="col-sm-6 form-group">
+            <label class="col-sm-3 control-label">工单号</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control AUFNR" readonly="readonly" name="AUFNR" />
+            </div>
+        </div>
+        <div class="col-sm-6 form-group">
+            <label class="col-sm-3 control-label">ERP操作员</label>
+            <div class="col-sm-9">
+                <input class="form-control ERPOperator"  readonly="readonly" name="ERP_Operator"/>
+            </div>
+        </div>
+    </form>            
+</div>
+```
+*效果如图*
+![单据头部信息](/img/单据头部信息.png)
 
