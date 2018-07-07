@@ -17,3 +17,11 @@ $(document).on("click",".lockItem",function(){
     },10);
 });
 ```
+### 2. 使用H-UI框架中的`layer`弹出层时发现 `layer.js`中没有l`ayer.prompt`，如果想要使用`layer.prompt`，可以使用 `layer` 中的 `use` 从扩展中加载此扩展方法
+```javascript
+layer.use('extend/layer.ext.js', function(){
+    layer.ext = function(){
+        layer.prompt({})
+    };
+});
+```
