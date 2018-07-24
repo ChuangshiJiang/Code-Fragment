@@ -1,7 +1,5 @@
 ﻿# JavaScript 常见问题和处理方法
 
-标签（空格分隔）： js
-
 ---
 ### 1. 地址栏中文字符，使用 `getQueryStringByName()`方法获取会乱码。
 ```javascript
@@ -344,4 +342,18 @@ function jsonDateTimeFormat(jsonDate) {
 **注意事项：** 页面中不能有 `id` 或者 `name`属性 为 `reset` 的其他元素，否则会导致 `.reset()` 报错为`undefined`
 
 
-### 16. 
+### 16. jquery 获取 outerHtml 包含当前节点本身的代码
+在开发过程中，`jQuery.html()` 是获取当前节点下的html代码，并不包含当前节点本身的代码，然后我们有时候确需要，找遍jQuery api文档也没有任何方法可以拿到。
+
+看到有的人通过`parent().html()`，如果当前元素没有兄弟元素还行，如果有那就行不通了。后来实验发现有一个jQuery的一个方法可以解决，而且非常简便，如下：
+
+`jQuery.prop("outerHTML");`
+```html
+<div class="test"><p>hello，你好！</p></div>
+<script>
+    $(".test").prop("outerHTML");
+</script>
+```
+**输出结果为：**`<div class="test"><P>hello,你好！</p></div>`
+
+### 17. 
