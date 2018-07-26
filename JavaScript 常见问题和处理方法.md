@@ -439,4 +439,11 @@ Person.prototype = {
 .
 .
 原型对象，顾名思义，它就是一个普通对象。从现在开始你要牢牢记住原型对象就是 `Person.prototype` ，如果你还是害怕它，那就把它想想成一个字母 A： `var A = Person.prototype`
+
+#### 17.4 __proto__
+`JS`在创建对象（不论是普通对象还是函数对象）的时候，都有一个叫做 `__proto__` 的内置属性，用于指向创建它的构造函数和原型对象
+对象 person1 有一个 `__proto__`属性，创建它的构造函数是 Person，构造函数的原型对象是 `Person.prototype` ，
+所以：
+`person1.__proto__ == Person.prototype //true`
+
 *详情参见* [最详尽的 JS 原型...](https://www.jianshu.com/p/dee9f8b14771)
