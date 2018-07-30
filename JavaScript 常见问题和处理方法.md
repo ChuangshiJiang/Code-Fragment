@@ -445,5 +445,8 @@ Person.prototype = {
 对象 person1 有一个 `__proto__`属性，创建它的构造函数是 Person，构造函数的原型对象是 `Person.prototype` ，
 所以：
 `person1.__proto__ == Person.prototype //true`
-
+*如下图：*
+![原型链《JavaScript 高级程序设计》的图 6-1](/img/原型链.jpg)
 *详情参见* [最详尽的 JS 原型...](https://www.jianshu.com/p/dee9f8b14771)
+
+### 18. 
