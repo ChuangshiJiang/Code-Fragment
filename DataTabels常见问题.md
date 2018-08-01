@@ -102,3 +102,32 @@ $(document).on("click", ".showQCCol", function () {
     column.visible(!column.visible());
 });
 ```
+
+### 6. 固定表格列
+>需要使用插件 [fixedColumns](https://www.datatables.net/download/)
+```javascript
+//DataTables 表格
+var table = $('#WorkOrderTable').DataTable({
+    "ajax": {
+        "url": Auto.AjaxAgent.Bill.GetWorkOrderForPaged.URL,
+        "type": "POST",
+        "data": function (data) {
+            data.PagedDataFilter = JSON.stringify(BuildFilter("#dataFilterArea"));
+        }
+    },
+    "scrollX": true,//允许datatables 横向滚动
+    "columns": [
+        { "render": Index, "orderable": false, },
+        { "title": "基本信息", "orderable": false, "render": basicInfo, "width": "131px" },
+        { "data": "WorkOrder_Id", "title": "进度信息", "orderable": false, "render": progressInfo },
+    ],
+}).on("draw", function () {
+    /*表格重绘，bootstrap--popover 弹出框组件加载*/
+    LoadPopover();
+});
+
+//使用插件
+new $.fn.dataTable.FixedColumns(table, {
+    "iLeftColumns": 2//固定表格前两列
+});
+```
