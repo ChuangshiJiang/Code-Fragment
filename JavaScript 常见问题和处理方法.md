@@ -3,7 +3,7 @@ title: "Hi there"
 output: pdf_document
 ---
 
-#JavaScript 常见问题和处理方法
+#JavaScript 笔记
 ### 1. 地址栏中文字符，使用 `getQueryStringByName()`方法获取会乱码。
 ```javascript
 /*
@@ -470,15 +470,7 @@ Person.prototype = {
 >一个函数总是会返回一个值。如果没有指定返回值，则返回 `undefined` 。
 如果函数在前面加上 `new` 前缀的方式来调用，且返回值不是一个对象，则返回 `this` （该新对象）
 
+### 19. JavaScript 的数组
+>数组是一段线性分配的内存，它通过整数去计算偏移并房问其中的元素。数组可以是很快的数据结构。不幸的是，JavaScript没有像数组一样的数据结构。反而，JavaScript提供了一种拥有一些类数组（array-like)特性的对象。它把数组的下标转变成字符串，用其作为属性。它明显地比一个真正的数组慢，但它可以更方便地使用。属性的检索和更新的方式与对象一模一样，除了有一个可以用整数作为属性名的特性外。数组有它们自己的字面量格式。数组也有一套非常有用的内置方法。
 
-```flow
-st=>start: 注册印象笔记
-e=>end: 您可以使用markdown
-op1=>operation: 登录印象笔记
-op2=>operation: 购买并登录马克飞象
-cond=>condition: 是否已经购买并登录了马克飞象?
-
-st->op1->cond
-cond(yes)->e
-cond(no)->op2->e
-&```
+### 20. 
