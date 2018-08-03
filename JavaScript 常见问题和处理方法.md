@@ -473,4 +473,29 @@ Person.prototype = {
 ### 19. JavaScript 的数组
 >数组是一段线性分配的内存，它通过整数去计算偏移并房问其中的元素。数组可以是很快的数据结构。不幸的是，JavaScript没有像数组一样的数据结构。反而，JavaScript提供了一种拥有一些类数组（array-like)特性的对象。它把数组的下标转变成字符串，用其作为属性。它明显地比一个真正的数组慢，但它可以更方便地使用。属性的检索和更新的方式与对象一模一样，除了有一个可以用整数作为属性名的特性外。数组有它们自己的字面量格式。数组也有一套非常有用的内置方法。
 
-### 20. 
+### 20. 判断一个值是否是真正的数组
+```javascript
+var my_value;
+if( my_value && typeof my_value === 'object' && typeof my_value.length = number && !(my_value.propertyIsEnumerable('length'))){
+    //my_value 确实是一个数组
+}
+```
+
+### 21. 统计一段文本（英文）中每个单词出现的次数
+```javascript
+var i,word,
+    text = 'This oracle of comfort has no pleased me.That when I am in heaven I shall'+
+    ' desire to see what this child does,and praise my Constructor.';
+var words = text.toLowerCase().split(/[\s,.]+/);
+var count = {};
+for(i=0;i<words.length;i++){
+    word = words[i];
+    if(count[word]){
+        count[word] += 1;
+    }else{
+        count[word] = 1;
+    }
+}
+```
+这段代码的问题：
+>让我们来研究该结果，`count`（`this1`的值为2，`count.heaven`的值是1，但是`count.constructor`却包含着一个看上去令人不可思议的字符串（译注7）。其原因在于`count` 对象继承自`object.prototype`，而`object.prototype` 包含着一个名为`constructor`的成员对象，它的值是一个`object`。`+=` 运算符，就像`+` 运算符一样，当它的双运算数不是数字时会执行字符申连接的操作而不是做加法。因为该对象是一个函数，所以`+=` 运算符将其转换成一个英名其妙的字符串，然后再把一个数字1加在它的后面。我们可以采用处理`for in`中的问题的相同方法去避免类似的问题：用`hasownProperty`方法检测成员关系，或者查找特定的类型。在当前情形下，我们对似是而非的 `count [word]`的测试条件不够具体（译注8)。
