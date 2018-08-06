@@ -131,3 +131,16 @@ new $.fn.dataTable.FixedColumns(table, {
     "iLeftColumns": 2//固定表格前两列
 });
 ```
+
+### 7. 刷新表格数据，分页信息不会重置
+
+```javascript
+//每30秒重新加载表数据(分页留存)
+var table = $('#example').DataTable( {
+    ajax: "data.json"
+} );
+setInterval( function () {
+    table.ajax.reload( null, false ); // 刷新表格数据，分页信息不会重置
+    //table.ajax.reload(); 分页不留存
+}, 30000 );
+```
