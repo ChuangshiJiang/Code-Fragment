@@ -498,4 +498,33 @@ for(i=0;i<words.length;i++){
 }
 ```
 这段代码的问题：
->让我们来研究该结果，`count`（`this1`的值为2，`count.heaven`的值是1，但是`count.constructor`却包含着一个看上去令人不可思议的字符串（译注7）。其原因在于`count` 对象继承自`object.prototype`，而`object.prototype` 包含着一个名为`constructor`的成员对象，它的值是一个`object`。`+=` 运算符，就像`+` 运算符一样，当它的双运算数不是数字时会执行字符申连接的操作而不是做加法。因为该对象是一个函数，所以`+=` 运算符将其转换成一个英名其妙的字符串，然后再把一个数字1加在它的后面。我们可以采用处理`for in`中的问题的相同方法去避免类似的问题：用`hasownProperty`方法检测成员关系，或者查找特定的类型。在当前情形下，我们对似是而非的 `count [word]`的测试条件不够具体（译注8)。
+>让我们来研究该结果，`count`（`this1`的值为2，`count.heaven`的值是1，但是`count.constructor`却包含着一个看上去令人不可思议的字符串（译注7）。其原因在于`count` 对象继承自`object.prototype`，而`object.prototype` 包含着一个名为`constructor`的成员对象，它的值是一个`object`。`+=` 运算符，就像`+` 运算符一样，当它的双运算数不是数字时会执行字符申连接的操作而不是做加法。因为该对象是一个函数，所以`+=` 运算符将其转换成一个英名其妙的字符串，然后再把一个数字1加在它的后面。我们可以采用处理`for in`中的问题的相同方法去避免类似的问题：用`hasownProperty`方法检测成员关系，或者查找特定的类型。在当前情形下，我们对似是而非的 `count [word]`的测试条件不够具体（译注8)。应该像下面这样：
+```javascript
+var i,word,
+    text = 'This oracle of comfort has no pleased me.That when I am in heaven I shall'+
+    ' desire to see what this child does,and praise my Constructor.';
+var words = text.toLowerCase().split(/[\s,.]+/);
+var count = {};
+for(i=0;i<words.length;i++){
+    word = words[i];
+    if(count.hasOwnProperty(word)){
+        if(count[word]){
+            count[word] += 1;
+        }else{
+            count[word] = 1;
+        }
+    }
+}
+```
+
+### 22. for in 语句
+>`for in`语句可以用来遍历对象的所有属性的名字。糟糕的是，它也会遍历出所有从原型锁中继承而来的成员元素。这带来了糟糕的副作用：或许你只对数据成员感兴趣，但它却提供了一些方法函数。
+每个 `for in` 语句的主体都应该被包围在一个用于过滤的`if`语句中。`if`语句可以选择某和特定的类型或某个范围内的值，它可以排除函数，或者排除从原型继承而来的属性。例如：
+```javascript
+for(name in object){
+    if(object.hasownProperty(name)){
+        ...
+    }
+}
+
+```
