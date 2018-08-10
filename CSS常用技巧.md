@@ -103,30 +103,36 @@ div.page{
 **详情查看:[菜鸟教程渐变色](http://www.runoob.com/css3/css3-gradients.html)**
 
 ### 4. 边框呼吸灯
+代码如下：
 ```html
-<!DOCTYPE html5>
-<html>
-    <head></head>
-    <body>
-        <div class="selectedTdForMap" style="width:200px;height:140px;"></div>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .selectedTdForMap {
+            border-width: 3px;
+            border-style: solid;
+            animation: myflash linear 0.6s infinite alternate;
+        }
+
+        @keyframes myflash {
+            0% {
+                border-color:  #f00;
+            }
+
+            100% {
+                border-color:  #f5c2c2;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="selectedTdForMap" style="width:200px;height:140px;"></div>
+</body>
+
 </html>
-
-```
-```css
-.selectedTdForMap {
-    border-width: 3px;
-    border-style: solid;
-    animation: myflash linear 0.6s infinite alternate;
-}
-
-@keyframes myflash {
-    0% {
-        border-color:  #f00;
-    }
-
-    100% {
-        border-color:  #f5c2c2;
-    }
-}
 ```
