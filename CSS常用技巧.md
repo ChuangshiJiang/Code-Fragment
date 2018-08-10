@@ -79,7 +79,7 @@ div.page{
 ![水印效果图](/img/水印动图.gif)
 
 
-### 3.对角线渐变神色
+### 3.对角线渐变色
 ```html
 <body>
     <h3>线性渐变 - 从上到下</h3>
@@ -101,3 +101,32 @@ div.page{
 ![渐变色效果图](./img/渐变色效果图.png)
 
 **详情查看:[菜鸟教程渐变色](http://www.runoob.com/css3/css3-gradients.html)**
+
+### 4. 边框呼吸灯
+```html
+<!DOCTYPE html5>
+<html>
+    <head></head>
+    <body>
+        <div class="selectedTdForMap" style="width:200px;height:140px;"></div>
+    </body>
+</html>
+
+```
+```css
+.selectedTdForMap {
+    border-width: 3px;
+    border-style: solid;
+    animation: myflash linear 0.6s infinite alternate;
+}
+
+@keyframes myflash {
+    0% {
+        border-color:  #f00;
+    }
+
+    100% {
+        border-color:  #f5c2c2;
+    }
+}
+```
