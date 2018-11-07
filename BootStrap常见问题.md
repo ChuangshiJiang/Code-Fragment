@@ -73,7 +73,7 @@ $(document).on("show.bs.popover", ".popoverTrigger", function (event) {
 ```
 
 
-### 3. 单据头部托条信息整齐展示
+### 3. 单据头部多条信息整齐展示
 ```html
 <div class="box-header">
     <form>
