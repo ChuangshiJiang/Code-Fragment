@@ -526,5 +526,14 @@ for(name in object){
         ...
     }
 }
+```
 
+### 23. map() 方法
+>map() 方法返回一个由原数组中的每个元素调用一个指定方法后的返回值组成的新数组。
+```javascript
+var data = [1, 2, 3, 4];
+
+var arrayOfSquares = data.map(item => { return item * item});
+
+console.log(arrayOfSquares);// 1, 4, 9, 16
 ```
