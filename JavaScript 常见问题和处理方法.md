@@ -537,3 +537,26 @@ var arrayOfSquares = data.map(item => { return item * item});
 
 console.log(arrayOfSquares);// 1, 4, 9, 16
 ```
+
+### 24. 对象深拷贝
+```javascript
+//先自定义一个判断元素类型的方法
+function toType(elem){
+    return ({}).toString.call(elem).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
+}
+
+//参数过滤函数
+function filterNull(o){
+    for(let key in o){
+        if(toType(o[key]) === 'string'){
+            o[key] = o[key].trim();
+        }else if(toType(o[key]) === 'object'){
+            o[key] = filterNull(o[key]);
+        }else if(toType(o[key]) === 'array'){
+            o[key] = filterNull(o[key]);
+        }
+    }
+    return o;
+}
+```
+
