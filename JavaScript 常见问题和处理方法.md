@@ -538,7 +538,7 @@ var arrayOfSquares = data.map(item => { return item * item});
 console.log(arrayOfSquares);// 1, 4, 9, 16
 ```
 
-### 24. 对象深拷贝
+### 24. 对象深拷贝（递归调用）
 ```javascript
 //先自定义一个判断元素类型的方法
 function toType(elem){
