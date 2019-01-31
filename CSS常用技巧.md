@@ -137,8 +137,21 @@ div.page{
 </html>
 ```
 
-### 5.Flex布局
-+ 弹性布局元素之间默认没有间隔
-+ 弹性布局默认不改变项目的宽度,但是默认改变项目的高度,align-self属性可以改变这种行为。
-+ 弹性布局默认左对齐，所以两个控件会从行首开始排列。
-+ 如果我们希望，输入框占据当前行的所有剩余宽度，只需要指定输入框的`flex-grow`属性为`1`。
+### 5. Flex（flexible box：弹性布局盒模型）
+*flex相关概念示意图：*
+![flexConception](./img/flex/flexConception.png)
+
+*flex属性总结表*
+![flexProps](./img/flex/flexProps.png)
+
++ `flex`是2009年w3c提出的一种可以简洁、快速弹性布局的属性。**主要思想是给予容器控制内部元素高度和宽度的能力**;
++ 其中在webkit内核的浏览器中使用时，必须加上`-webkit-`前缀;
++ 弹性布局元素之间默认没有间隔;
++ 弹性布局默认不改变项目的宽度,但是默认改变项目的高度,align-self属性可以改变这种行为;
++ 弹性布局默认左对齐，所以两个控件会从行首开始排列;
++ 如果我们希望，输入框占据当前行的所有剩余宽度，只需要指定输入框的`flex-grow`属性为`1`;
++ 如果项目很多，一个个地设置`align-self`属性就很麻烦。这时，可以在容器元素（本例为表单）设置`align-items`属性，它的值被所有子项目的`align-self`属性继承。;
++ 需注意使用flex容器内元素，即`flex item`的`float，clear、vertical-align`属性将失效。
+
+参考链接：https://www.cnblogs.com/nuannuan7362/p/5823381.html
+
