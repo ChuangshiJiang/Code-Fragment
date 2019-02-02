@@ -155,3 +155,25 @@ div.page{
 
 参考链接：https://www.cnblogs.com/nuannuan7362/p/5823381.html
 
+### 6. 使用Flex布局实现子元素相对父容器的水平垂直居中
+```css
+.parent {
+    width: 200px;
+    height: 100px;
+    position: relative;
+    background-color: #374858;
+}
+.item {
+    width: 100px;
+    height: 50px;
+    background-color: #9dc3e6;
+}
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+```
+如图：
+![使用Flex布局实现子元素相对父容器的水平垂直居中](/img/flex/flexcenter.png)
+
