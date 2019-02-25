@@ -594,3 +594,52 @@ alert(arr.length == 0);//true
 
 ```
 
+### 26. Promise 技术实现脚本的异步加载
+```javascript
+// 执行脚本
+function exec(src){
+    const script = document.createElement('script');
+    script.src = src;
+
+    //返回一个独立的 promise
+    return new Promise((resolve,reject) =>{
+        let done = false;
+        script.onload = script.onreadystatechange = ()=>{
+            if(!done &&(!script.readState || script.readySate ==='loaded' || script.readyState === 'complete')){
+                done  = true;
+                //避免内存泄漏
+                script.onload = script.onreadystatechange = null;
+                resolve(script);
+            }
+            script.onerror = reject;
+        }
+        document.getElementsByTagName('head')[0].appendChild(script);
+    });
+}
+
+function asyncLoadJS(dependencies){
+    return Promise.all(dependencies.map(exec));
+}
+
+asyncLoadJS(['https://code.jquery.com/jquery-2.2.1.js',
+ 'https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js',
+ ]).then(()=>{
+    console.log('all done');
+});
+
+```
+
+### 27. 懒加载之虚拟代理
+*所谓虚拟代理加载，即为真正加载的对象事先提供一个代理或者说占位符。最常见的场景是在图片的懒加载中，先用一种loading的图片占位，然后再用异步的方式加载图片。等真正图片加载完成后就填充进图片节点中去。*
+```javascript
+const lazyLoadImg = ()=>{
+    const images = document.getElementsByTagName('img');
+    for(let i = 0;i<images.length;i++){
+        if(images[i].getAttribute('data-src')){
+            images[i].setAttribute('src',images[i].getAttribute('data-src'));
+            img
+        }
+    }
+}
+```
+
