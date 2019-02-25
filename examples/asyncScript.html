@@ -11,7 +11,7 @@
 <body>
 
     <h1>promise实现的异步加载脚本</h1>
-
+    <button id="button001">button001</button>
     <script type="text/javascript">
         // 执行脚本
         function exec(src) {
@@ -42,10 +42,18 @@
         asyncLoadJS(['https://cdn.bootcss.com/jquery/3.3.1/jquery.js',
             'https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.js',
             'https://cdn.bootcss.com/react/16.8.2/cjs/react.development.js',
-            ]).then(() => {
-                console.log('all done');
-                // console.log('first script is loaded');
+        ]).then(() => {
+            console.log('all done');
+            // console.log('first script is loaded');
+        });
+
+        document.getElementById('button001').addEventListener('click', () => {
+            import('https://cdn.bootcss.com/ember.js/3.0.0-beta.2/ember-runtime.js').then(res => {
+                alert('model load success');
+            }).catch(err => {
+                console.log('model load error');
             });
+        })
     </script>
 </body>
 

@@ -637,9 +637,20 @@ const lazyLoadImg = ()=>{
     for(let i = 0;i<images.length;i++){
         if(images[i].getAttribute('data-src')){
             images[i].setAttribute('src',images[i].getAttribute('data-src'));
-            img
+            img.onload = ()=>img.removeAttribute('data-src');
         }
     }
 }
+```
+
+### 28. import() 动态加载
+```javascript
+    document.getElementById('button001').addEventListener('click',()=>{
+        import().then(res=>{
+            alert('model load success');
+        }).catch(err=>{
+            console.log('model load error');
+        });
+    })
 ```
 
