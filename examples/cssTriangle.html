@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .search {
+            padding: 20px 0 0 0;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        
+        .search>h5 span{
+            display: inline-block;
+            padding:0 10px;
+            width: 80px;
+            cursor: pointer;
+        }
+        .s-input{
+            flex-direction: row;
+           display: flex;
+        }
+        .s-input input{
+            flex-grow: 1;
+            padding: 5px 10px;
+        }
+        .triangle {
+            display: block;
+            width: 0;
+            height: 0;
+            border-width: 10px;
+            border-style: solid;
+            border-color: transparent transparent #afafaf  transparent;
+            position: absolute;
+            z-index: 10;
+            bottom: 28px;
+        }
+
+        .triangle.active {
+            border-color: transparent transparent #006aff transparent;
+        }
+
+        .triangle:after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border-width: 10px;
+            border-style: solid;
+            border-color: transparent transparent #fff transparent;
+            position: absolute;
+            top: -8px;
+            left: -10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="search">
+            <h5 @click='handleClick'>
+                <span class="searchType" name="first">人生困惑</span>
+                <span  class="searchType" name="second">宇宙真相</span>
+            </h5>
+            <span class="triangle" :style="{left:left}"></span>
+            <div class="s-input">
+                <input type="text" :placeholder="msg" v-model='searchContent'>
+                <button type="button">搜索</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+        new Vue({
+            el:'#app',
+            data:function(){
+                return {
+                    msg:'输入你的问题',
+                    searchContent:'',
+                    left:'27px'
+                }
+            },
+            methods:{
+                handleClick:function(event){
+                    if(event.target.tagName.toLowerCase() !== 'span'){
+                        return;
+                    }
+                    if(event.target.attributes.name.value === 'first'){
+                        this.left = '27px';
+                    }else{
+                        this.left = '129px';
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -177,3 +177,5 @@ div.page{
 如图：
 ![使用Flex布局实现子元素相对父容器的水平垂直居中](/img/flex/flexcenter.png)
 
+### 7.CSS三角形
+[flexProps](./examples/cssTriangle.html)
