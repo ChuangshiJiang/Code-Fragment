@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .search {
+            padding: 20px 0 0 0;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .search>h5 span {
+            display: inline-block;
+            padding: 0 10px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .s-input {
+            flex-direction: row;
+            display: flex;
+        }
+
+        .s-input input {
+            flex-grow: 1;
+            padding: 5px 10px;
+        }
+
+        .searchType {
+            position: relative;
+        }
+
+        .searchType::selection {
+            background-color: skyblue;
+        }
+
+        .searchType::-moz-selection {
+            background-color: skyblue;
+        }
+
+        .triangle {
+            
+        }
+
+        .triangle::before {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border-width: 10px;
+            border-style: solid;
+            border-color: transparent transparent #545454 transparent;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 19px;
+            margin: 0 auto;
+            z-index: 0;
+        }
+
+        .triangle::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border-width: 10px;
+            border-style: solid;
+            border-color: transparent transparent #fff transparent;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 20px;
+            margin: 0 auto;
+            z-index: 1;
+        }
+
+        .hide {
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="search">
+            <h5 @click='handleClick'>
+                <span class="searchType" name="first">人生困惑<i class="triangle" v-show="showindex==='first'"></i></span>
+                <span class="searchType" name="second">宇宙真相<i class="triangle" v-show="showindex==='second'"></i></span>
+                <span class="searchType" name="third">算命大师命运勘测<i class="triangle" v-show="showindex==='third'"></i></span>
+                <span class="searchType" name="forth">太极八卦阴阳相生<i class="triangle" v-show="showindex==='forth'"></i></span>
+            </h5>
+            <div class="s-input">
+                <input type="text" :placeholder="msg" v-model='searchContent'>
+                <button type="button">搜索</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: function () {
+                return {
+                    msg: '输入你的问题',
+                    searchContent: '',
+                    showindex:'first'
+                }
+            },
+            methods: {
+                handleClick: function (event) {
+                    if (event.target.tagName.toLowerCase() !== 'span') return;
+                    this.showindex = event.target.attributes.name.value;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
