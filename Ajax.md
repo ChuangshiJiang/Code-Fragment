@@ -8,7 +8,7 @@
 `AJAX` 不需要任何浏览器插件，但需要用户允许`JavaScript`在浏览器上执行。
 
 #### 2. Ajax 的工作原理
-![ajax的工作原理](/img/ajax的工作原理.gif);
+![ajax的工作原理](/img/ajax的工作原理.gif)
 
 #### 3.AJAX - 创建 XMLHttpRequest 对象
 >所有现代浏览器（IE7+、Firefox、Chrome、Safari 以及 Opera）均内建 XMLHttpRequest 对象。（IE5 和 IE6 使用 ActiveXObject）。
