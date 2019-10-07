@@ -225,6 +225,7 @@ _flex 属性总结表_
   - 清楚浮动，使 BFC 内部浮动元素不会到处乱跑
   - 和浮动元素产生边界，避免和浮动元素重叠
 - BFC 触发条件
+  - <html\> 根元素
   - float 属性不为 none
   - overflow 不为 visible(可以是 hidden、scroll、auto)
   - position 为 absolute 或 fixed
