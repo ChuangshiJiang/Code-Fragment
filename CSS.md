@@ -319,3 +319,41 @@ css代码
 ```
 最终效果：
 ![css斜纹](/img/TIM截图20190903194138.jpg)
+
+### 12.visibility & transition
+>下面的CSS是会让．box元素hover时显示．target子元素，但不会有过渡效果：
+
+```css
+.box > .target{
+  display:none;
+  position:absolute;
+  opacity:0;
+  transition:opacity .25s;
+}
+.box:hover > .target{
+  display:block;
+  opacity:1;
+}
+
+
+```
+
+>但是，下面的CSS语句却可以让．target子元素有淡出的过渡效果：
+
+```css
+.box > .target{
+  position:absolute;
+  opacity:0;
+  transition:opacity .25s;
+  visibility:hidden;
+}
+.box:hover > .target{
+  position:absolute;
+  opacity:0;
+  transition:opacity .25s;
+  visibility:hidden;
+}
+```
+这是因为CSS3 transition支持的CSS属性中有visibility，但是并没有display。
+![visibility&hidden](/img/visibility&transition.png)
+[示例代码](/examples/visibility&transition.html)
