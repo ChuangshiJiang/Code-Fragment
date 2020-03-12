@@ -247,113 +247,145 @@ _flex 属性总结表_
 ```
 
 ### 10.控制滚动轴样式
-html代码
+
+html 代码
+
 ```html
 <div class="box"></div>
 ```
-css代码
+
+css 代码
+
 ```css
-.box:hover ::-webkit-scrollbar-thumb{
-  display:block;
+.box:hover ::-webkit-scrollbar-thumb {
+  display: block;
 }
 /* 滚动条整体样式 */
-.box::-webkit-scrollbar{
-  width:4px;
+.box::-webkit-scrollbar {
+  width: 4px;
 }
 /* 滑块样式 */
-.box::-webkit-scrollbar-thumb{
-  border-radius:4px;
-  -webkit-box-shadow:inset 0 0 5px rgba(0,0,0,0.2);
-  background-color:#d9d9d9;
-  display:none;
+.box::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  background-color: #d9d9d9;
+  display: none;
 }
 /* 滚动条轨道 */
-.box::-webkit-scrollbar-track{
-  -webkit-box-shadow:inset 0 0 1px rgba(0,0,0,0);
-  border-radius:4px;
-  background-color:transparent;
+.box::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0);
+  border-radius: 4px;
+  background-color: transparent;
 }
 ```
+
 最终效果如下图：
 ![自定义的滚动条样式](/img/TIM截图20190903193157.jpg)
 
-### 11.CSS斜纹
+### 11.CSS 斜纹
+
 ```html
- <div class="twill-container">
+<div class="twill-container">
   <!--background-size控制斜纹的粗细-->
   <div class="twill"></div>
- </div>
+</div>
 ```
+
 ```css
-.twill-container{
+.twill-container {
   height: 14px;
-  width:14px;
+  width: 14px;
   font-size: 14px;
   text-align: left;
   display: inline-block;
 }
-.twill-container .twill{
+.twill-container .twill {
   height: 14px;
   width: 100%;
-  background-color:'#FF526C';
-  background-image: -webkit-gradient(linear, 0 0, 100% 100%,
-  color-stop(.25, rgba(255, 255, 255, .2)), color-stop(.25, transparent),
-  color-stop(.5, transparent), color-stop(.5, rgba(255, 255, 255, .2)),
-  color-stop(.75, rgba(255, 255, 255, .2)), color-stop(.75, transparent),
-  to(transparent));
-  background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
-  transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
-  transparent 75%, transparent);
-  background-image: -o-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
-  transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
-  transparent 75%, transparent);
+  background-color: '#FF526C';
+  background-image: -webkit-gradient(
+    linear,
+    0 0,
+    100% 100%,
+    color-stop(0.25, rgba(255, 255, 255, 0.2)),
+    color-stop(0.25, transparent),
+    color-stop(0.5, transparent),
+    color-stop(0.5, rgba(255, 255, 255, 0.2)),
+    color-stop(0.75, rgba(255, 255, 255, 0.2)),
+    color-stop(0.75, transparent),
+    to(transparent)
+  );
+  background-image: -moz-linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-image: -o-linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+  );
   background-image: linear-gradient(
-          -45deg,
-          rgba(255, 255, 255, .3) 25%, transparent 25%,
-          transparent 50%, rgba(255, 255, 255, .3) 50%,
-          rgba(255, 255, 255, .3) 75%, transparent 75%,
-          transparent
+    -45deg,
+    rgba(255, 255, 255, 0.3) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0.3) 75%,
+    transparent 75%,
+    transparent
   );
   background-size: 4px 4px;
 }
 ```
+
 最终效果：
 ![css斜纹](/img/TIM截图20190903194138.jpg)
 
 ### 12.visibility & transition
->下面的CSS是会让．box元素hover时显示．target子元素，但不会有过渡效果：
+
+> 下面的 CSS 是会让．box 元素 hover 时显示．target 子元素，但不会有过渡效果：
 
 ```css
-.box > .target{
-  display:none;
-  position:absolute;
-  opacity:0;
-  transition:opacity .25s;
+.box > .target {
+  display: none;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.25s;
 }
-.box:hover > .target{
-  display:block;
-  opacity:1;
+.box:hover > .target {
+  display: block;
+  opacity: 1;
 }
-
-
 ```
 
->但是，下面的CSS语句却可以让．target子元素有淡出的过渡效果：
+> 但是，下面的 CSS 语句却可以让．target 子元素有淡出的过渡效果：
 
 ```css
-.box > .target{
-  position:absolute;
-  opacity:0;
-  transition:opacity .25s;
-  visibility:hidden;
+.box > .target {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.25s;
+  visibility: hidden;
 }
-.box:hover > .target{
-  position:absolute;
-  opacity:0;
-  transition:opacity .25s;
-  visibility:hidden;
+.box:hover > .target {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.25s;
+  visibility: hidden;
 }
 ```
-这是因为CSS3 transition支持的CSS属性中有visibility，但是并没有display。
+
+这是因为 CSS3 transition 支持的 CSS 属性中有 visibility，但是并没有 display。
 ![visibility&hidden](/img/visibility&transition.png)
 [示例代码](/examples/visibility&transition.html)

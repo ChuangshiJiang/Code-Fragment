@@ -144,13 +144,15 @@ const lazyLoadImg = () => {
 ### 28. import() 动态加载
 
 ```javascript
-    document.getElementById('button001').addEventListener('click',()=>{
-        import().then(res=>{
-            alert('model load success');
-        }).catch(err=>{
-            console.log('model load error');
-        });
+document.getElementById('button001').addEventListener('click', () => {
+  import()
+    .then(res => {
+      alert('model load success')
     })
+    .catch(err => {
+      console.log('model load error')
+    })
+})
 ```
 
 ### 29.缓存的更新（查询参考：应用程序缓存清单）
@@ -180,6 +182,6 @@ function deepClone(origin, target) {
       }
     }
   }
-  return target;
+  return target
 }
 ```
