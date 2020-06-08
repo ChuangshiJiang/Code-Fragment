@@ -10,6 +10,6 @@
             "* @returns {${5|Number,String,Boolean,Object,Array,Function,Void|}}",
             "*/"
         ],
-        "description": "方法注释",
+        "description": "方法注释"
     }
 }
