@@ -1,0 +1,15 @@
+{
+    "des": {
+        "prefix": "des",
+        "body": [
+            "/**",
+            "* ${1:method_description}",
+            "* @author Jiang_Chuangshi",
+            "* @date ${CURRENT_YEAR}/${CURRENT_MONTH}/${CURRENT_DATE} ${CURRENT_HOUR}:${CURRENT_MINUTE}",
+            "* @param {${2|Number,String,Boolean,Object,Array,Function|}} ${3:param_name} ${4:param_description}",
+            "* @returns {${5|Number,String,Boolean,Object,Array,Function,Void|}}",
+            "*/"
+        ],
+        "description": "方法注释",
+    }
+}
