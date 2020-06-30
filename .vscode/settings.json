@@ -1,1 +1,24 @@
-{}
+{
+    "git.autofetch": true,
+    "editor.fontFamily": "Fira Code,Consolas, 'Courier New', monospace",
+    "editor.fontSize": 16,
+    "terminal.external.windowsExec": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "editor.lineHeight": 25,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/node_modules": true
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/*.code-search": true
+    },
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    }
+}
