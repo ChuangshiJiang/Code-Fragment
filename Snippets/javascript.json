@@ -11,5 +11,23 @@
             "*/"
         ],
         "description": "方法注释"
+    },
+    "ReactComponent": {
+        "prefix": "rc",
+        "body": [
+            "import React,{${1|useState,useEffect,Fragment}} from \"react\";",
+            "import {${2}} from \"antd\";",
+            "import Layout form \"@/components/Layout\";",
+            "\n",
+            "export default function ${3|name}() {",
+            "\t${4}",
+            "\treturn (",
+            "<Layout title=\"${5}\">",
+            "<div className=\"dsc-cnt\"></div>",
+            "</Layout>",
+            ")",
+            "}"
+        ],
+        "description": "生成React组件模板"
     }
 }
