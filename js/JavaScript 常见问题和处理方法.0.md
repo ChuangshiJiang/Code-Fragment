@@ -154,16 +154,17 @@ arr.sort(compareByOrder('desc')) // [100,20,10,2,1]
 
 ```javascript
 function compare(prop, order) {
-  ;(prop = String(prop)), (order = String(order))
+  prop = String(prop);
+  order = String(order);
   return function(obj1, obj2) {
     let val1 = obj1[prop],
-      val2 = obj2[prop]
+      val2 = obj2[prop];
     switch (order) {
       case 'desc': //降序
-        return val1 < val2 ? 1 : val1 > val2 ? -1 : 0
+        return val1 < val2 ? 1 : val1 > val2 ? -1 : 0;
         break
       case 'asc': //升序
-        return val1 < val2 ? -1 : val1 > val2 ? 1 : 0
+        return val1 < val2 ? -1 : val1 > val2 ? 1 : 0;
         break
       default:
         break
@@ -171,13 +172,13 @@ function compare(prop, order) {
   }
 }
 
-let personA = { name: 'Jack', age: 27 }
-let personB = { name: 'Tom', age: 30 }
-let arr = [personA, personB]
+let personA = { name: 'Jack', age: 27 };
+let personB = { name: 'Tom', age: 30 };
+let arr = [personA, personB];
 
-arr.sort(compare('name', 'desc')) //[{name:'Tom',age:30},{name:'Jack',age:27}]
-arr.sort(compare('age', 'desc')) //[{name:'Tom',age:30},{name:'Jack',age:27}]
-arr.sort(compare('name', 'asc')) //[{name:'Jack',age:27},{name:'Tom',age:30}]
+arr.sort(compare('name', 'desc')); //[{name:'Tom',age:30},{name:'Jack',age:27}]
+arr.sort(compare('age', 'desc')); //[{name:'Tom',age:30},{name:'Jack',age:27}]
+arr.sort(compare('name', 'asc')); //[{name:'Jack',age:27},{name:'Tom',age:30}]
 ```
 
 ### 10. 输入框（连续）回车事件
