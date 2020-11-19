@@ -71,7 +71,7 @@ _如图_
 
 ---
 
-### 15. form 表单的 rest() 方法
+### 15. form 表单的 reset() 方法
 
 **注意事项：** 页面中不能有 `id` 或者 `name`属性 为 `reset` 的其他元素，否则会导致 `.reset()` 报错为`undefined`
 
