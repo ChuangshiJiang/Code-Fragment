@@ -144,7 +144,7 @@ function compareByOrder(order) {
 }
 
 let arr = [1, 10, 100, 2, 20]
-arr.sort() //[1,2,10,20,100] 使用数组默认排序方法，会先将数组元素转成字符形式，然后比较
+arr.sort() //[1, 10, 100, 2, 20] 使用数组默认排序方法，会先将数组元素转成字符形式，然后比较
 arr.sort(compare) //[1,2,10,20,100]
 arr.sort(compareByOrder('desc')) // [100,20,10,2,1]
 //也可以降序排列
