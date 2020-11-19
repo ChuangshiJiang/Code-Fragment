@@ -1,5 +1,5 @@
 /**
-* 下载方法
+* 下载方法,加到下载按钮或者下载链接的 click 事件上，或者放到blob类型的回调中使用
 * @author Jiang_Chuangshi
 * @date 2020/11/19 16:12
 * @param {String} url 链接地址
